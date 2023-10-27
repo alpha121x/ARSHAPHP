@@ -24,47 +24,47 @@
   <main id="main">
 
     <!-- ======= Clients Section ======= -->
-    <?php include("includes/main/clients-section.php") ?>
+    <?php include("includes/index/clients-section.php") ?>
     <!-- End Cliens Section -->
 
     <!-- ======= About Us Section ======= -->
-    <?php include("includes/main/about-us-section.php") ?>
+    <?php include("includes/index/about-us-section.php") ?>
     <!-- End About Us Section -->
 
     <!-- ======= Why Us Section ======= -->
-    <?php include("includes/main/why-us-section.php") ?>
+    <?php include("includes/index/why-us-section.php") ?>
     <!-- End Why Us Section -->
 
     <!-- ======= Skills Section ======= -->
-    <?php include("includes/main/skills-section.php") ?>
+    <?php include("includes/index/skills-section.php") ?>
     <!-- End Skills Section -->
 
     <!-- ======= Services Section ======= -->
-    <?php include("includes/main/services-section.php")?>
+    <?php include("includes/index/services-section.php")?>
     <!-- End Services Section -->
 
     <!-- ======= Cta Section ======= -->
-    <?php include("includes/main/cta-section.php") ?>
+    <?php include("includes/index/cta-section.php") ?>
     <!-- End Cta Section -->
 
     <!-- ======= Portfolio Section ======= -->
-    <?php include("includes/main/portfolio-section.php") ?>
+    <?php include("includes/index/portfolio-section.php") ?>
     <!-- End Portfolio Section -->
 
     <!-- ======= Team Section ======= -->
-    <?php include("includes/main/team-section.php") ?>
+    <?php include("includes/index/team-section.php") ?>
     <!-- End Team Section -->
 
     <!-- ======= Pricing Section ======= -->
-    <?php include("includes/main/pricing-section.php") ?>
+    <?php include("includes/index/pricing-section.php") ?>
     <!-- End Pricing Section -->
 
     <!-- ======= Frequently Asked Questions Section ======= -->
-    <?php include("includes/main/faq-section.php") ?>
+    <?php include("includes/index/faq-section.php") ?>
     <!-- End Frequently Asked Questions Section -->
 
     <!-- ======= Contact Section ======= -->
-    <?php include("includes/main/contact-section.php") ?>
+    <?php include("includes/index/contact-section.php") ?>
     <!-- End Contact Section -->
 
   <!-- End #main -->
