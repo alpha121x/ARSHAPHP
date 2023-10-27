@@ -5,7 +5,9 @@
 
   <title>Arsha Bootstrap Template - Index</title>
 
+  <!-- ======= Linked files  ======= -->
   <?php include("includes/linked-files.php") ?>
+  <!-- ======= End Linked files ======= -->
 
 </head>
 
@@ -65,15 +67,15 @@
     <?php include("includes/main/contact-section.php") ?>
     <!-- End Contact Section -->
 
-  </main><!-- End #main -->
+  <!-- End #main -->
 
   <!-- ======= Footer ======= -->
   <?php include("includes/footer.php") ?>
   <!-- End Footer -->
 
-  <!-- ======= Footer ======= -->
+  <!-- ======= Preloader ======= -->
   <?php include("includes/preloader.php") ?>
-   <!-- ======= End Footer  ======= -->
+   <!-- ======= End Preloader  ======= -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
