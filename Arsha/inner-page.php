@@ -4,7 +4,9 @@
 <head>
   <title>Inner Page - Arsha Bootstrap Template</title>
 
+  <!-- ======= Linked files  ======= -->
   <?php include("includes/linked-files.php") ?>
+  <!-- ======= End Linked files ======= -->
  
 </head>
 
@@ -14,9 +16,21 @@
   <?php include("includes/inner-page/header-nav.php") ?>
   <!-- End Header -->
 
-  <!-- #main -->
-  <?php include("includes/inner-page/main.php") ?>
-  <!-- End #main -->
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <?php include("includes/inner-page/breadcrumbs.php") ?>
+    <!-- End Breadcrumbs -->
+
+    <section class="inner-page">
+      <div class="container">
+        <p>
+          Example inner page template
+        </p>
+      </div>
+    </section>
+
+  </main>
 
   <!-- ======= Footer ======= -->
   <?php include("includes/footer.php") ?>
