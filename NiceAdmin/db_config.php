@@ -1,5 +1,5 @@
 <?php
-require_once 'include/config.php';
+require_once 'config.php';
 require_once 'include/classes/meekrodb.2.3.class.php'; // Make sure to download and include the MeekroDB library
 
 // Establish database connection using MeekroDB

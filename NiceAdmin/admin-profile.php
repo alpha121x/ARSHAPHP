@@ -1,10 +1,33 @@
-<?php include("include/auth.php") ?>
-<?php include("include/config.php") ?>
+<?php include("auth.php") ?>
+<?php include("config.php") ?>
+
+<?php
+require_once 'db_config.php';
+
+  // Fetch data from the admin_users table
+  $users = DB::query("SELECT username,password,email,user_image,user_about,user_type FROM admin_users");
+
+  // Check if any users were found
+  if ($users) {
+      // Loop through the users and display their data
+      foreach ($users as $user) {
+        $username = htmlspecialchars($user['username']);
+        $password = htmlspecialchars($user['password']);
+        $email = htmlspecialchars($user['email']);
+        $user_image = htmlspecialchars($user['user_image']);
+        $user_about = htmlspecialchars($user['user_about']);
+        $user_type = htmlspecialchars($user['user_type']);
+      }
+  } else {
+      echo "No users found in the database.";
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <title>Add Student - Form</title>
+  <title>Admin Profile</title>
   <?php include"include/linked-files.php" ?>
 </head>
 
@@ -26,19 +49,6 @@
       </nav>
     </div><!-- End Page Title -->
     
-    <?php 
-             include ("include/config.php");
-             $admin_qry = "SELECT * FROM admin_users";
-             $result = $cn->query($admin_qry);
-             if ($result->num_rows >0) {
-              while ($row = $result->fetch_assoc()) {
-                $user_id = $row['user_id'];
-                $username = $row['username'];
-                $password = $row['password'];
-                $email = $row['email'];
-          ?>    
-            <?php }}?>
-
     <section class="section profile">
       <div class="row">
         <div class="col-xl-4">
@@ -47,7 +57,7 @@
             <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
               <img src="assets/img/abbas.jpeg" alt="Profile" class="rounded-circle">
-              <h2> <?php echo $username; ?> </h2>
+              <h2><?php echo $username ?></h2>
               <h3>Web Developer</h3>
               <div class="social-links mt-2">
                 <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
@@ -85,36 +95,25 @@
 
               </ul>
               <div class="tab-content pt-2">
-
                 <div class="tab-pane fade show active profile-overview" id="profile-overview">
                   <h5 class="card-title">About</h5>
-                  <p class="small fst-italic"> <?php echo $about; ?> </p>
+                  <p class="small fst-italic"><?php echo $user_about; ?></p>
 
                   <h5 class="card-title">Profile Details</h5>
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label ">Username</div>
-                    <div class="col-lg-9 col-md-8"> <?php echo $username; ?> </div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">User Type</div>
-                    <div class="col-lg-9 col-md-8"> <?php echo $utype; ?> </div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Address</div>
-                    <div class="col-lg-9 col-md-8"> <?php echo $address; ?> </div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Phone</div>
-                    <div class="col-lg-9 col-md-8"><?php echo $mobile; ?> </div>
+                    <div class="col-lg-9 col-md-8"><?php echo $username ?></div>
                   </div>
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Email</div>
                     <div class="col-lg-9 col-md-8"> <?php echo $email; ?> </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">User Type</div>
+                    <div class="col-lg-9 col-md-8"> <?php echo $user_type; ?> </div>
                   </div>
 
                 </div>
@@ -126,7 +125,7 @@
                     <div class="row mb-3">
                       <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
                       <div class="col-md-8 col-lg-9">
-                        <img src="assets/img/<?php echo $photo; ?>" class="form-control" alt="Profile" name="photo">
+                        <img src="assets/img/abbas.jpeg" class="form-control" alt="Profile" name="photo">
                         <div class="col-sm-6">
                         <input type="file" class="form-control" name="photo">
                         </div>
@@ -143,28 +142,14 @@
                     <div class="row mb-3">
                       <label for="about" class="col-md-4 col-lg-3 col-form-label">About</label>
                       <div class="col-md-8 col-lg-9">
-                        <textarea name="about" class="form-control"  style="height: 100px"> <?php echo $about; ?> </textarea>
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
-                      <label for="Address" class="col-md-4 col-lg-3 col-form-label">Address</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="address" type="text" class="form-control" value='<?php echo $address; ?>'>
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
-                      <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Phone</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="mobile" type="text" class="form-control" value='<?php echo $mobile; ?>'>
+                        <textarea name="about" class="form-control"  style="height: 100px"> <?php echo $user_about; ?> </textarea>
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="inputuser" class="col-md-4 col-lg-3 col-form-label">User Type</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="utype" type="text" class="form-control" value='<?php echo $utype; ?>'>
+                        <input name="utype" type="text" class="form-control" value='<?php echo $user_type; ?>'>
                       </div>
                     </div>
 
@@ -255,19 +240,6 @@
                 <div class="tab-pane fade pt-3" id="profile-change-password">
                   <!-- Change Password Form -->
                   <form method="post" action="fire-update-querries.php">
-                        <?php 
-                          include ("NiceAdmin/include/config.php");
-                          $admin_qry = "SELECT * FROM admin_users";
-                          $result = $cn->query($admin_qry);
-                          if ($result->num_rows >0) {
-                            while ($row = $result->fetch_assoc()) {
-                              $admin_id = $row['user_id'];
-                              $username = $row['username'];
-                              $password = $row['password'];
-                              $email = $row['email'];
-                        ?>    
-                        <?php }}?>
-
                     <div class="row mb-3">
                       <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Current Password</label>
                       <div class="col-md-8 col-lg-9">
