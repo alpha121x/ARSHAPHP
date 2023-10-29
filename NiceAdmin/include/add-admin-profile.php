@@ -53,42 +53,7 @@
                   <div class="col-sm-6">
                     <input type="password" class="form-control" placeholder="Enter Password" name="password">
                   </div>
-                </div>
-                <div class="row mb-3">
-                  <label for="inputmobile" class="col-sm-2 col-form-label">Mobile Number</label>
-                  <div class="col-sm-6">
-                    <input type="text" class="form-control" placeholder="Enter Mobile No." name="mobile">
-                  </div>
-                </div>
-                
-                <div class="row mb-3">
-                  <label for="inputuser" class="col-sm-2 col-form-label">User Type</label>
-                  <div class="col-sm-6">
-                    <input type="text" class="form-control" placeholder="Enter User type" name="utype">
-                  </div>
-                </div>
-                
-                <div class="row mb-3">
-                  <label for="inputimage" class="col-sm-2 col-form-label">Add Profile Image</label>
-                  <div class="col-sm-6">
-                    <input type="file" class="form-control" name="photo">
-                  </div>
-                </div>
-
-                <div class="row mb-3">
-                  <label for="inputabout" class="col-sm-2 col-form-label">About Profile</label>
-                  <div class="col-sm-6">
-                  <textarea class="form-control" name="about-profile" id="" cols="30" rows="10"></textarea>
-                  </div>
-                </div>
-
-                <div class="row mb-3">
-                  <label for="inputaddress" class="col-sm-2 col-form-label">Address</label>
-                  <div class="col-sm-6">
-                    <input type="text" class="form-control" placeholder="Enter Adress" name="address">
-                  </div>
-                </div>
-
+                </div>      
                 </div>
                 
                 <div class="text-center">

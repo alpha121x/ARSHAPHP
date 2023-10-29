@@ -20,7 +20,7 @@
       <h1>Profile</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="index.php">Home</a></li>
           <li class="breadcrumb-item active">Admin Profile</li>
         </ol>
       </nav>
@@ -28,19 +28,14 @@
     
     <?php 
              include ("NiceAdmin/include/config.php");
-             $admin_qry = "SELECT * FROM admin";
+             $admin_qry = "SELECT * FROM admin_users";
              $result = $cn->query($admin_qry);
              if ($result->num_rows >0) {
               while ($row = $result->fetch_assoc()) {
-                $admin_id = $row['id'];
+                $user_id = $row['user_id'];
                 $username = $row['username'];
                 $password = $row['password'];
                 $email = $row['email'];
-                $mobile = $row['mobile'];
-                $utype = $row['utype'];
-                $photo = $row['photo'];
-                $address = $row['address'];
-                $about = $row['about'];
           ?>    
             <?php }}?>
 
@@ -51,7 +46,7 @@
           <div class="card">
             <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
-              <img src="assets/img/<?php echo $photo ; ?>" alt="Profile" class="rounded-circle">
+              <img src="assets/img/abbas.jpeg" alt="Profile" class="rounded-circle">
               <h2> <?php echo $username; ?> </h2>
               <h3>Web Developer</h3>
               <div class="social-links mt-2">

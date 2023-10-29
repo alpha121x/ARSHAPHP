@@ -2,9 +2,9 @@
 if (isset($_POST['login'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
-    if ($username =='abbas' && $password == '12345') {
+    if ($username =='admin' && $password == '12345') {
       session_start();
-      $_SESSION['user'] = $username;
+      $_SESSION['admin-user'] = $username;
       header('Location:index.php');
     }
 }
