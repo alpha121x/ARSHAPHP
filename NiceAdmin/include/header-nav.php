@@ -1,22 +1,3 @@
-<?php 
-             include ("NiceAdmin/include/config.php");
-             $admin_qry = "SELECT * FROM admin";
-             $result = $cn->query($admin_qry);
-             if ($result->num_rows >0) {
-              while ($row = $result->fetch_assoc()) {
-                $admin_id = $row['id'];
-                $username = $row['username'];
-                $password = $row['password'];
-                $email = $row['email'];
-                $mobile = $row['mobile'];
-                $utype = $row['utype'];
-                $photo = $row['photo'];
-                $address = $row['address'];
-                $about = $row['about'];
-          ?>    
-            <?php }}?>
-
-            
 <!-- ======= Header ======= -->
 <header id="header" class="header fixed-top d-flex align-items-center">
 

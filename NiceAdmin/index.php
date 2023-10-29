@@ -5,7 +5,7 @@
 
 <head>
 
-  <title>Dashboard - NiceAdmin</title>
+  <title>Dashboard - NiceAdmin1</title>
 
  <?php include"NiceAdmin/include/linked-files.php" ?>
 

@@ -257,13 +257,14 @@
                   <form method="post" action="fire-update-querries.php">
                         <?php 
                           include ("NiceAdmin/include/config.php");
-                          $admin_qry = "SELECT * FROM admin";
+                          $admin_qry = "SELECT * FROM admin_users";
                           $result = $cn->query($admin_qry);
                           if ($result->num_rows >0) {
                             while ($row = $result->fetch_assoc()) {
-                              $admin_id = $row['id'];
+                              $admin_id = $row['user_id'];
                               $username = $row['username'];
                               $password = $row['password'];
+                              $email = $row['email'];
                         ?>    
                         <?php }}?>
 
