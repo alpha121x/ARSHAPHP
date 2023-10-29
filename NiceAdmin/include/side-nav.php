@@ -10,7 +10,7 @@
     </a>
   </li><!-- End Dashboard Nav --> 
       <li class="nav-item">
-        <a class="nav-link collapsed"  href="add-admin-profile.php">
+        <a class="nav-link collapsed"  href="add-user-profile.php">
         <i class="bi bi-person-fill-add"></i>
           <span>Add Admin Profile</span>
         </a>
