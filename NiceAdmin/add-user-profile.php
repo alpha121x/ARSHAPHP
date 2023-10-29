@@ -1,10 +1,10 @@
-<?php include("include/auth.php") ?>
-<?php include("include/config.php") ?>
+<?php include("auth.php") ?>
+<?php include("config.php") ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <title>Add Student - Form</title>
+  <title>Add User Profile - Form</title>
   <?php include"include/linked-files.php" ?>
 </head>
 
@@ -43,21 +43,43 @@
                   </div>
                 </div>
                 <div class="row mb-3">
+                  <label for="inputfname" class="col-sm-2 col-form-label">Password</label>
+                  <div class="col-sm-6">
+                    <input type="password" class="form-control" placeholder="Enter Password" name="password">
+                  </div>
+                </div>  
+                <div class="row mb-3">
                   <label for="inputemail" class="col-sm-2 col-form-label">Email</label>
                   <div class="col-sm-6">
                     <input type="email" class="form-control" placeholder="Enter Email" name="email">
                   </div>
                 </div>
+
                 <div class="row mb-3">
-                  <label for="inputfname" class="col-sm-2 col-form-label">Password</label>
+                  <label for="inputuser" class="col-sm-2 col-form-label">User Type</label>
                   <div class="col-sm-6">
-                    <input type="password" class="form-control" placeholder="Enter Password" name="password">
+                    <input type="text" class="form-control" placeholder="Enter User type" name="user_type">
                   </div>
-                </div>      
+                </div>
+
+                <div class="row mb-3">
+                  <label for="inputimage" class="col-sm-2 col-form-label">Add Profile Image</label>
+                  <div class="col-sm-6">
+                    <input type="file" class="form-control" name="user_image">
+                  </div>
+                </div>
+
+                <div class="row mb-3">
+                  <label for="inputabout" class="col-sm-2 col-form-label">About Profile</label>
+                  <div class="col-sm-6">
+                  <textarea class="form-control" name="about-profile" id="" cols="30" rows="10"></textarea>
+                  </div>
+                </div>
+                   
                 </div>
                 
                 <div class="text-center">
-                  <button type="submit" class="btn btn-primary" name="add-user"><i class='bx bx-upload'></i> Save</button>
+                  <button type="submit" class="btn btn-primary" name="add-user"><i class='bx bx-upload'></i> Add</button>
                   <button type="reset" class="btn btn-secondary" name="reset">Reset</button>
                 </div>
                 <br>
