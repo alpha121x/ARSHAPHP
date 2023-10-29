@@ -8,9 +8,7 @@
   <!-- ======= Linked files  ======= -->
   <?php include("includes/linked-files.php") ?>
   <!-- ======= End Linked files ======= -->
-
 </head>
-
 <body>
 
   <!-- ======= Header ======= -->
