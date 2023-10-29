@@ -1,3 +1,3 @@
-<?php include("NiceAdmin/include/config.php") ?>
+<?php include("include/config.php") ?>
 
 

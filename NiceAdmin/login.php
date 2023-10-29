@@ -16,7 +16,7 @@ if (isset($_POST['login'])) {
   <title>Pages / Login - NiceAdmin Bootstrap Template</title>
   
   
- <?php include"NiceAdmin/include/linked-files.php" ?>
+ <?php include"include/linked-files.php" ?>
   
 
 </head>
@@ -93,7 +93,7 @@ if (isset($_POST['login'])) {
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-  <?php include"NiceAdmin/include/script-files.php" ?>
+  <?php include"include/script-files.php" ?>
 
 </body>
 

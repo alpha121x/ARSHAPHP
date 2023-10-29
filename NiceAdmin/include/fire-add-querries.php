@@ -1,4 +1,4 @@
-<?php include("NiceAdmin/include/config.php") ?>
+<?php include("include/config.php") ?>
 
 <?php 
 if (isset($_POST['add-user'])){

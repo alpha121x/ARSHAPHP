@@ -1,19 +1,19 @@
-<?php include("NiceAdmin/include/auth.php") ?>
-<?php include("NiceAdmin/include/config.php") ?>
+<?php include("include/auth.php") ?>
+<?php include("include/config.php") ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <title>Add Student - Form</title>
-  <?php include"NiceAdmin/include/linked-files.php" ?>
+  <?php include"include/linked-files.php" ?>
 </head>
 
 <body>
 
   
-  <?php include"NiceAdmin/include/header-nav.php" ?>  
+  <?php include"include/header-nav.php" ?>  
  
-  <?php include"NiceAdmin/include/side-nav.php" ?> 
+  <?php include"include/side-nav.php" ?> 
 
   <main id="main" class="main">
 
@@ -74,14 +74,14 @@
 
   </main><!-- End #main -->
 
-  <?php include"NiceAdmin/include/footer.php" ?> 
+  <?php include"include/footer.php" ?> 
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-  <?php include"NiceAdmin/include/script-files.php" ?>
+  <?php include"include/script-files.php" ?>
 
 </body>
-<script src="NiceAdmin/jquery/jquery.min.js"></script>
+<script src="jquery/jquery.min.js"></script>
   <script src="jquery/jquery.inputmask.bundle.js"></script>
   <script>
 	  $(":input").inputmask();

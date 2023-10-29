@@ -1,6 +1,6 @@
 <?php
-require_once 'NiceAdmin/include/config.php';
-require_once 'NiceAdmin/include/classes/meekrodb.2.3.class.php'; // Make sure to download and include the MeekroDB library
+require_once 'include/config.php';
+require_once 'include/classes/meekrodb.2.3.class.php'; // Make sure to download and include the MeekroDB library
 
 // Establish database connection using MeekroDB
 DB::$host = DB_HOST;
