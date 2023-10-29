@@ -1,5 +1,5 @@
 <?php 
-             include ("config.php");
+             include ("NiceAdmin/include/config.php");
              $admin_qry = "SELECT * FROM admin";
              $result = $cn->query($admin_qry);
              if ($result->num_rows >0) {
