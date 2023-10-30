@@ -1,11 +1,11 @@
-<?php include("auth.php") ?>
+<?php require("auth.php") ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 
-  <title>Dashboard - NiceAdmin1</title>
+  <title>Dashboard - NiceAdmin</title>
 
  <?php include"include/linked-files.php" ?>
 
