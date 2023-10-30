@@ -1,3 +1,14 @@
+<?php
+if (isset($_POST['login'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    if ($username =='abbas' && $password == '12345') {
+      session_start();
+      $_SESSION['user'] = $username;
+      header('Location:index.php');
+    }
+}
+?>
 <? require("auth.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
