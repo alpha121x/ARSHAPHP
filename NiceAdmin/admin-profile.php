@@ -1,5 +1,6 @@
 <?php include("auth.php") ?>
 <?php include("config.php") ?>
+<?php include("db_config.php") ?>
 
 <?php
 require_once 'db_config.php';

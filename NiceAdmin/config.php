@@ -1,17 +1,12 @@
 <?php
-define('DB_HOST', 'localhost'); // Database host (usually 'localhost')
-define('DB_USERNAME', 'root'); // Your database username
-define('DB_PASSWORD', ''); // Your database password
-define('DB_DATABASE', 'arshaphp'); // Your database name
+require_once 'include/classes/meekrodb.2.3.class.php'; // Include the MeekroDB library
+require_once 'db_config.php'; // Include your database configuration
 
-// TODO:: remove mysqli and use MeekroDB everywhere
-// Create connection
-$conn = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
+// Establish database connection using MeekroDB
+DB::$host = 'localhost'; // Your database host (usually 'localhost')
+DB::$user = 'username'; // Your database username
+DB::$password = ''; // Your database password
+DB::$dbName = 'arshaphp'; // Your database name
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
 
-echo "Connected successfully";
 ?>

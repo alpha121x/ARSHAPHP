@@ -1,5 +1,7 @@
 <?php include("auth.php") ?>
 <?php include("config.php") ?>
+<?php include("db_config.php") ?>
+
 <!DOCTYPE html>
 <html lang="en">
 

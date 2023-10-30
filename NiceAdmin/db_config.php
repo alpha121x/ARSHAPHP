@@ -3,17 +3,10 @@ require_once 'config.php';
 require_once 'include/classes/meekrodb.2.3.class.php'; // Make sure to download and include the MeekroDB library
 
 // Establish database connection using MeekroDB
-DB::$host = DB_HOST;
-DB::$user = DB_USERNAME;
-DB::$password = DB_PASSWORD;
-DB::$dbName = DB_DATABASE;
+DB::$host = 'localhost';
+DB::$user = 'username';
+DB::$password = '';
+DB::$dbName = 'arshaphp';
 DB::$error_handler = 'db_error_handler'; // Optional: custom error handler function
 
-function db_error_handler($params) {
-    // Handle database errors if needed
-    // For example: log the errors, display a user-friendly message, etc.
-    // You can customize this function according to your requirements
-}
-
-// Now, you can use MeekroDB functions to interact with the database
 ?>

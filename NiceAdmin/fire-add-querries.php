@@ -1,4 +1,5 @@
 <?php
+require_once'config.php';
 require_once 'db_config.php';
 
 if (isset($_POST['add-user'])){
