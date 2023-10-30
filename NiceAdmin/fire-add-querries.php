@@ -4,10 +4,9 @@ require_once 'db_config.php'; // Include your database configuration
 
 if (isset($_POST['add-user'])){
     $username = $_POST['username'];
-    $password = password_hash('password', PASSWORD_DEFAULT); // Hash the password for security
+    $password = md5('password'); // Hash the password for security
     $email = $_POST['email'];
     $user_image = $_POST['user_image'];
-    $user_about = $_POST['about-profile'];
     $user_type = $_POST['user_type'];
   }
 
@@ -18,7 +17,6 @@ DB::insert('admin_users', array(
     'email' => $email,
     'user_type' => $user_type,
     'user_image' => $user_image,
-    'user_about' => $user_about
 ));
 
 // Check if the insertion was successful

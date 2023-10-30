@@ -18,11 +18,11 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Student Form</h1>
+      <h1>User Form</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-          <li class="breadcrumb-item">Add Admin Profile</li>
+          <li class="breadcrumb-item">Add Users</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -66,13 +66,6 @@
                   <label for="inputimage" class="col-sm-2 col-form-label">Add Profile Image</label>
                   <div class="col-sm-6">
                     <input type="file" class="form-control" name="user_image">
-                  </div>
-                </div>
-
-                <div class="row mb-3">
-                  <label for="inputabout" class="col-sm-2 col-form-label">About Profile</label>
-                  <div class="col-sm-6">
-                  <textarea class="form-control" name="about-profile" id="" cols="30" rows="10"></textarea>
                   </div>
                 </div>
                    

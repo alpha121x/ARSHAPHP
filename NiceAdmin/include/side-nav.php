@@ -12,13 +12,19 @@
       <li class="nav-item">
         <a class="nav-link collapsed"  href="add-user-profile.php">
         <i class="bi bi-person-fill-add"></i>
-          <span>Add Admin Profile</span>
+          <span>Add Users Profile</span>
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link collapsed"  href="admin-profile.php">
         <i class="bi bi-person-fill-lock"></i>
           <span>Admin Profile</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed"  href="admin_users.php">
+        <i class="bi bi-person-fill-lock"></i>
+          <span>Users</span>
         </a>
       </li>
 </aside><!-- End Sidebar-->
