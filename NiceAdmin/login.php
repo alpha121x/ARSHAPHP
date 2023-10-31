@@ -1,18 +1,3 @@
-<?php
-if (isset($_POST['login'])) {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    if ($username =='abbas' && $password == '12345') {
-      session_start();
-      $_SESSION['admin-user'] = $username;
-      header('Location:index.php');
-    }
-    else {
-      echo 'Error';
-    }
-}
-?>
-<? require("auth.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,7 +36,7 @@ if (isset($_POST['login'])) {
                     <p class="text-center small">Enter your username & password to login</p>
                   </div>
 
-                  <form class="row g-3 needs-validation"  method="post">
+                  <form class="row g-3 needs-validation" action="auth.php" method="post">
 
                     <div class="col-12">
                       <label for="yourUsername" class="form-label">Username</label>
