@@ -7,6 +7,9 @@ if (isset($_POST['login'])) {
       $_SESSION['admin-user'] = $username;
       header('Location:index.php');
     }
+    else {
+      echo 'Error';
+    }
 }
 ?>
 <? require("auth.php"); ?>
