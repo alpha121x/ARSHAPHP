@@ -27,4 +27,16 @@
           <span>Users</span>
         </a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed"  href="add-menu-items.php">
+        <i class="bi bi-journal-text"></i>
+          <span>Add Menu Links</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed"  href="view-menu_links.php">
+        <i class="bi bi-journal-text"></i>
+          <span>Menu Links</span>
+        </a>
+      </li>
 </aside><!-- End Sidebar-->

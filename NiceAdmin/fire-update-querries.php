@@ -37,3 +37,23 @@ else {
 }
 }
 ?> 
+
+
+<?php
+//create query 
+if(isset($_POST['update-link'])){
+    $edit_menu_page_id=$_POST['edit-menu-page-id'];
+    $link_text = mysqli_real_escape_string($cn, $_POST['link_name']);
+    $link_url = mysqli_real_escape_string($cn, $_POST['link_url']);
+	
+
+//update query
+$update_menu_qry = mysqli_query($cn,"UPDATE menu_links SET link_text='$link_text', url='$link_url' WHERE link_id = $edit_menu_page_id");
+if($update_menu_qry){
+    header("Location:view-menu_links.php");
+}
+else {
+    echo mysqli_error($cn);
+}
+}
+?> 
