@@ -4,7 +4,7 @@ require_once 'db_config.php'; // Include your database configuration
 
 if (isset($_POST['add-user'])){
     $username = $_POST['username'];
-    $password = md5('password'); // Hash the password for security
+    $password = $_POST['password'];
     $email = $_POST['email'];
     $user_image = $_POST['user_image'];
     $user_type = $_POST['user_type'];
