@@ -53,31 +53,34 @@
             </thead>
             <tbody>
             <?php
-require_once 'include/classes/meekrodb.2.3.class.php'; // Include the MeekroDB library
-require_once 'db_config.php'; // Include your database configuration
+                require_once 'include/classes/meekrodb.2.3.class.php'; // Include the MeekroDB library
+                require_once 'db_config.php'; // Include your database configuration
 
-// Fetch all rows from the admin_users table
-$users = DB::query("SELECT * FROM admin_users");
+                // Fetch data from admin_users table
+                $results = DB::query("SELECT * FROM admin_users");
 
+                // Check if there are any results
+                if ($results) {
+                  // Loop through the results and display them in a table
+                  foreach ($results as $row) {
+                      $user_id = $row['user_id'];
+                      $username = $row['username'];
+                      $email = $row['email'];
+                      $user_type = $row['user_type'];
 
-// Check if any users were found
-if ($users) {
-    // Loop through the users and display their data
-    foreach ($users as $user) {
-        $user_id = $user['user_id'];
-        $user_name = $user['username'];
-        $user_email = $user['email'];
-        $user_type = $user['user_type'];   
-    }
-}
-?>
-                 <tr>
-                    <th><?php echo $user_id; ?></th>
-                    <td><?php echo $user_name; ?></td>
-                    <td><?php echo $user_email; ?></td>
-                    <td><?php echo $user_type; ?></td>
-                    <td>edit | delete</td>
-                  </tr>
+                      echo"<tr>
+                      <th>$user_id</th>
+                      <th>$username</th>
+                      <th>$email</th>
+                      <th>$user_type</th>
+                      <th><a href=''><i class='fa fa-edit'></i>Edit</a>
+                      |
+                      <a href=''><i class=' fa fa-trash-o'></i>Delte</a></th>
+                    </tr>";
+                  }
+
+              }
+                  ?>
                 
             </tbody>
           </table>
