@@ -7,10 +7,8 @@
       $email = $_POST['email'];
       $user_type = $_POST['user_type'];
       $user_image = $_POST['user_image'];
-
  
-	//encryption method ny md5..... 
-	// $enc = md5($name);
+	
 //insert query
 $add_user_query = mysqli_query($cn,"INSERT INTO admin_users (username,password,email,user_type,user_image)
 VALUES('$username','$password','$email','$user_type','$user_image')");
