@@ -13,6 +13,7 @@ if ($result->num_rows > 0) {
     // Access individual columns like $row['column_name']
     $id = $row['user_id'];
     $username = $row['username'];
+    $password = $row['password'];
     $email = $row['email'];
     $user_type = $row['user_type'];
     $user_image = $row['user_image'];
@@ -26,9 +27,6 @@ if ($result->num_rows > 0) {
 // Close the database connection
 $cn->close();
 ?>
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -243,7 +241,7 @@ $cn->close();
                     <div class="row mb-3">
                       <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Current Password</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="password"  type="password" class="form-control" id="currentPassword">
+                        <input name="password"  type="password" value='<?php echo $password ?>' class="form-control" id="currentPassword">
                       </div>
                     </div>
 

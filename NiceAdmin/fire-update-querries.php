@@ -20,3 +20,20 @@ else {
 }
 }
 ?> 
+
+<?php
+//create query 
+if(isset($_POST['update-password'])){
+    $password = $_POST['renewpassword'];
+	
+
+//update query
+$update_password_qry = mysqli_query($cn,"UPDATE admin_users SET password = '$password' LIMIT 1");
+if($update_password_qry){
+    header("Location:admin-profile.php");
+}
+else {
+    echo mysqli_error($cn);
+}
+}
+?> 

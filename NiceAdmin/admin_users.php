@@ -76,7 +76,7 @@
 												<td>
 													<a href='edit-user.php?id=<?php echo $id; ?>'><i class="fa fa-edit"></i>Edit</a>
 													|
-													<a href='delete.php?deleteid=<?php echo $id; ?>'><i class=" fa fa-trash-o"></i>Delte</a>
+													<a href='delete.php?deleteid=<?php echo $id; ?>'><i class=" fa fa-trash-o"></i>Delete</a>
 												</td>
 											</tr>
 									<?php } }  ?>
