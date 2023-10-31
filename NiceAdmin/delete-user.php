@@ -9,7 +9,7 @@ if (isset($_GET['id'])) {
     DB::delete('admin_users', 'user_id=%i', $user_id);
 
     // Redirect back to the page displaying users after deletion
-    header("Location:admin-users.php");
+    header("Location:admin_users.php");
 } else {
     // Handle the case when no user ID is provided in the URL
     echo "Invalid request.";
