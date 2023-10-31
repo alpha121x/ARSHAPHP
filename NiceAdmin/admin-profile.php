@@ -2,26 +2,25 @@
 <?php include("config.php") ?>
 
 <?php
-require_once 'db_config.php';
+ require_once 'include/classes/meekrodb.2.3.class.php'; // Include the MeekroDB library
+ require_once 'db_config.php'; // Include your database configuration
 
-  // Fetch data from the admin_users table
-  $users = DB::query("SELECT username,password,email,user_image,user_about,user_type FROM admin_users");
 
-  // Check if any users were found
-  if ($users) {
-      // Loop through the users and display their data
-      foreach ($users as $user) {
-        $username = htmlspecialchars($user['username']);
-        $password = htmlspecialchars($user['password']);
-        $email = htmlspecialchars($user['email']);
-        $user_image = htmlspecialchars($user['user_image']);
-        $user_about = htmlspecialchars($user['user_about']);
-        $user_type = htmlspecialchars($user['user_type']);
-      }
-  } else {
-      echo "No users found in the database.";
-  }
-?>
+  // Fetch admin user data from admin_users table
+    $result = DB::queryFirstRow("SELECT * FROM admin_users"); // Assuming you have the user ID stored in a session variable
+
+    if ($result) {
+        $user_id = $result['id'];
+        $username = $result['username'];
+        $email = $result['email'];
+        $user_type = $result['user_type'];
+        $user_image = $result['user_image'];
+        // Add more fields as needed
+    } else {
+        echo "User not found.";
+    }
+  ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -125,7 +124,7 @@ require_once 'db_config.php';
                     <div class="row mb-3">
                       <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
                       <div class="col-md-8 col-lg-9">
-                        <img src="assets/img/abbas.jpeg" class="form-control" alt="Profile" name="photo">
+                        <img src="assets/img/<?php echo $user_image ?>" class="form-control" alt="Profile" name="photo">
                         <div class="col-sm-6">
                         <input type="file" class="form-control" name="photo">
                         </div>
@@ -136,13 +135,6 @@ require_once 'db_config.php';
                       <label for="username" class="col-md-4 col-lg-3 col-form-label">Username</label>
                       <div class="col-md-8 col-lg-9">
                         <input name="username" type="text" class="form-control"  value='<?php echo $username; ?>'>
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
-                      <label for="about" class="col-md-4 col-lg-3 col-form-label">About</label>
-                      <div class="col-md-8 col-lg-9">
-                        <textarea name="about" class="form-control"  style="height: 100px"> <?php echo $user_about; ?> </textarea>
                       </div>
                     </div>
 

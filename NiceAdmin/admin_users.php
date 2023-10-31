@@ -38,7 +38,7 @@
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">Datatables</h5>
-          <p>Add lightweight datatables to your project with using the <a href="https://github.com/fiduswriter/Simple-DataTables" target="_blank">Simple DataTables</a> library. Just add <code>.datatable</code> class name to any table you wish to conver to a datatable</p>
+          <p>Eidt Users record.</p>
 
           <!-- Table with stripped rows -->
           <table class="table datatable">
@@ -73,9 +73,9 @@
                       <th>$username</th>
                       <th>$email</th>
                       <th>$user_type</th>
-                      <th><a href=''><i class='fa fa-edit'></i>Edit</a>
+                      <th><a href='edit-user.php?id=$user_id'><i class='fa fa-edit'></i>Edit</a>
                       |
-                      <a href=''><i class=' fa fa-trash-o'></i>Delte</a></th>
+                      <a href='delete-user.php?id=$user_id'><i class=' fa fa-trash-o'></i>Delete</a></th>
                     </tr>";
                   }
 

@@ -1,5 +1,27 @@
 <?php include("auth.php") ?>
 <?php include("config.php") ?>
+<?php
+require_once 'include/classes/meekrodb.2.3.class.php'; // Include the MeekroDB library
+require_once 'db_config.php'; // Include your database configuration
+
+if(isset($_GET['id'])){
+    $user_id = $_GET['id']; // Get user ID from URL parameter
+
+    // Fetch user data based on the ID
+    $user = DB::queryFirstRow("SELECT * FROM admin_users WHERE user_id=%i", $user_id);
+
+    if($user){
+        $username = $user['username'];
+        $email = $user['email'];
+        $user_type = $user['user_type'];
+    } else {
+        echo "User not found.";
+    }
+} else {
+    echo "Invalid request.";
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,26 +61,20 @@
                 <div class="row mb-3">
                   <label for="inputusername" class="col-sm-2 col-form-label">Username</label>
                   <div class="col-sm-6">
-                    <input type="text" class="form-control" placeholder="Enter Username" name="username">
+                    <input type="text" class="form-control" value='<?php echo $username; ?>' name="username">
                   </div>
                 </div>
                 <div class="row mb-3">
-                  <label for="inputfname" class="col-sm-2 col-form-label">Password</label>
-                  <div class="col-sm-6">
-                    <input type="password" class="form-control" placeholder="Enter Password" name="password">
-                  </div>
-                </div>  
-                <div class="row mb-3">
                   <label for="inputemail" class="col-sm-2 col-form-label">Email</label>
                   <div class="col-sm-6">
-                    <input type="email" class="form-control" placeholder="Enter Email" name="email">
+                    <input type="email" class="form-control" value='<?php echo $email; ?>' name="email">
                   </div>
                 </div>
 
                 <div class="row mb-3">
                   <label for="inputuser" class="col-sm-2 col-form-label">User Type</label>
                   <div class="col-sm-6">
-                    <input type="text" class="form-control" placeholder="Enter User type" name="user_type">
+                    <input type="text" class="form-control" value='<?php echo $user_type; ?>' name="user_type">
                   </div>
                 </div>
 
