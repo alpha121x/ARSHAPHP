@@ -52,44 +52,33 @@
               </tr>
             </thead>
             <tbody>
-            <tr>
-                    <th scope="row">1</th>
-                    <td>Brandon Jacob</td>
-                    <td>Designer</td>
-                    <td>28</td>
-                    <td>2016-05-25</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Bridie Kessler</td>
-                    <td>Developer</td>
-                    <td>35</td>
-                    <td>2014-12-05</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Ashleigh Langosh</td>
-                    <td>Finance</td>
-                    <td>45</td>
-                    <td>2011-08-12</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">4</th>
-                    <td>Angus Grady</td>
-                    <td>HR</td>
-                    <td>34</td>
-                    <td>2012-06-11</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">5</th>
-                    <td>Raheem Lehner</td>
-                    <td>Dynamic Division Officer</td>
-                    <td>47</td>
-                    <td>2011-04-19</td>
-                  </tr>
+            <?php
+require_once 'include/classes/meekrodb.2.3.class.php'; // Include the MeekroDB library
+require_once 'db_config.php'; // Include your database configuration
+
+// Fetch all rows from the admin_users table
+$users = DB::query("SELECT * FROM admin_users");
 
 
-              
+// Check if any users were found
+if ($users) {
+    // Loop through the users and display their data
+    foreach ($users as $user) {
+        $user_id = $user['user_id'];
+        $user_name = $user['username'];
+        $user_email = $user['email'];
+        $user_type = $user['user_type'];   
+    }
+}
+?>
+                 <tr>
+                    <th><?php echo $user_id; ?></th>
+                    <td><?php echo $user_name; ?></td>
+                    <td><?php echo $user_email; ?></td>
+                    <td><?php echo $user_type; ?></td>
+                    <td>edit | delete</td>
+                  </tr>
+                
             </tbody>
           </table>
           <!-- End Table with stripped rows -->

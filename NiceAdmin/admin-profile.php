@@ -97,7 +97,7 @@ require_once 'db_config.php';
               <div class="tab-content pt-2">
                 <div class="tab-pane fade show active profile-overview" id="profile-overview">
                   <h5 class="card-title">About</h5>
-                  <p class="small fst-italic"><?php echo $user_about; ?></p>
+                  <p class="small fst-italic">....</p>
 
                   <h5 class="card-title">Profile Details</h5>
 
