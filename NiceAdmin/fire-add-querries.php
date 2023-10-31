@@ -1,28 +1,25 @@
+<?php require('config.php'); ?>
 <?php
-require_once 'include/classes/meekrodb.2.3.class.php'; // Include the MeekroDB library
-require_once 'db_config.php'; // Include your database configuration
+//create query 
+  if(isset($_POST['add-user'])){
+      $username = $_POST['username'];
+      $password = $_POST['password'];
+      $email = $_POST['email'];
+      $user_type = $_POST['user_type'];
+      $user_image = $_POST['user_image'];
 
-if (isset($_POST['add-user'])){
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    $email = $_POST['email'];
-    $user_image = $_POST['user_image'];
-    $user_type = $_POST['user_type'];
-  }
+ 
+	//encryption method ny md5..... 
+	// $enc = md5($name);
+//insert query
+$add_user_query = mysqli_query($cn,"INSERT INTO admin_users (username,password,email,user_type,user_image)
+VALUES('$username','$password','$email','$user_type','$user_image')");
 
-// Insert data into admin_users table
-DB::insert('admin_users', array(
-    'username' => $username,
-    'password' => $password,
-    'email' => $email,
-    'user_type' => $user_type,
-    'user_image' => $user_image,
-));
-
-// Check if the insertion was successful
-if (DB::affectedRows() > 0) {
+if($add_user_query){
     header("Location:add-user-profile.php");
-  } else {
-      echo "Error: Unable to insert user data.";
-  }
-  ?>
+}
+else{
+	echo mysqli_error($cn);	
+}
+}
+?>

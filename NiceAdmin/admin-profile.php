@@ -1,25 +1,33 @@
 <?php include("auth.php") ?>
-<?php include("config.php") ?>
-
 <?php
- require_once 'include/classes/meekrodb.2.3.class.php'; // Include the MeekroDB library
- require_once 'db_config.php'; // Include your database configuration
+include("config.php"); // Include your database connection file
+
+// SQL query to select the first row from the admin_users table
+$view_first_admin_user_qry = "SELECT * FROM admin_users LIMIT 1";
+$result = $cn->query($view_first_admin_user_qry);
+
+if ($result->num_rows > 0) {
+    // Fetch the first row of data
+    $row = $result->fetch_assoc();
+
+    // Access individual columns like $row['column_name']
+    $id = $row['user_id'];
+    $username = $row['username'];
+    $email = $row['email'];
+    $user_type = $row['user_type'];
+    $user_image = $row['user_image'];
+
+    // Process the data as needed
+    // Example: echo "User ID: $id, Username: $username, Email: $email, UserType: $user_type<br>";
+} else {
+    echo "No admin users found in the database.";
+}
+
+// Close the database connection
+$cn->close();
+?>
 
 
-  // Fetch admin user data from admin_users table
-    $result = DB::queryFirstRow("SELECT * FROM admin_users"); // Assuming you have the user ID stored in a session variable
-
-    if ($result) {
-        $user_id = $result['id'];
-        $username = $result['username'];
-        $email = $result['email'];
-        $user_type = $result['user_type'];
-        $user_image = $result['user_image'];
-        // Add more fields as needed
-    } else {
-        echo "User not found.";
-    }
-  ?>
 
 
 <!DOCTYPE html>
@@ -235,7 +243,7 @@
                     <div class="row mb-3">
                       <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Current Password</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="password" value='<?php echo $password; ?>' type="password" class="form-control" id="currentPassword">
+                        <input name="password"  type="password" class="form-control" id="currentPassword">
                       </div>
                     </div>
 

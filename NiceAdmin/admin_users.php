@@ -52,35 +52,34 @@
               </tr>
             </thead>
             <tbody>
-            <?php
-                require_once 'include/classes/meekrodb.2.3.class.php'; // Include the MeekroDB library
-                require_once 'db_config.php'; // Include your database configuration
+          	<?php
+									include("config.php");
+									$view_users_qry = "SELECT * FROM admin_users";
+									$result = $cn->query($view_users_qry);
+									if ($result->num_rows > 0) {
+										while ($row = $result->fetch_assoc()) {
 
-                // Fetch data from admin_users table
-                $results = DB::query("SELECT * FROM admin_users");
-
-                // Check if there are any results
-                if ($results) {
-                  // Loop through the results and display them in a table
-                  foreach ($results as $row) {
-                      $user_id = $row['user_id'];
-                      $username = $row['username'];
+											// make variables and display in rows
+											$id = $row['user_id'];
+											$username = $row['username'];
                       $email = $row['email'];
                       $user_type = $row['user_type'];
+                      $user_image = $row['user_image'];
+									?>
+											<!-- show data in the rows -->
+											<tr>
+												<td><?php echo $row['user_id']; ?></td>
+												<td><?php echo $row['username'] ?></td>
+												<td><?php echo $row['email']; ?></td>
+												<td><?php echo $row['user_type']; ?></td>
 
-                      echo"<tr>
-                      <th>$user_id</th>
-                      <th>$username</th>
-                      <th>$email</th>
-                      <th>$user_type</th>
-                      <th><a href='edit-user.php?id=$user_id'><i class='fa fa-edit'></i>Edit</a>
-                      |
-                      <a href='delete-user.php?id=$user_id'><i class=' fa fa-trash-o'></i>Delete</a></th>
-                    </tr>";
-                  }
-
-              }
-                  ?>
+												<td>
+													<a href='edit-user.php?id=<?php echo $id; ?>'><i class="fa fa-edit"></i>Edit</a>
+													|
+													<a href='delete.php?deleteid=<?php echo $id; ?>'><i class=" fa fa-trash-o"></i>Delte</a>
+												</td>
+											</tr>
+									<?php } }  ?>
                 
             </tbody>
           </table>

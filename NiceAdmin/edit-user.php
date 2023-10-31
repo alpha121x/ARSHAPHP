@@ -1,32 +1,40 @@
 <?php include("auth.php") ?>
-<?php include("config.php") ?>
 <?php
-require_once 'include/classes/meekrodb.2.3.class.php'; // Include the MeekroDB library
-require_once 'db_config.php'; // Include your database configuration
+include("config.php");
 
-if(isset($_GET['id'])){
-    $user_id = $_GET['id']; // Get user ID from URL parameter
+// Check if user ID is provided in the URL
+if(isset($_GET['id'])) {
+    $user_id = $_GET['id'];
 
-    // Fetch user data based on the ID
-    $user = DB::queryFirstRow("SELECT * FROM admin_users WHERE user_id=%i", $user_id);
+    // SQL query to fetch user data based on user ID
+    $view_user_qry = "SELECT * FROM admin_users WHERE user_id = $user_id";
+    $result = $cn->query($view_user_qry);
 
-    if($user){
-        $username = $user['username'];
-        $email = $user['email'];
-        $user_type = $user['user_type'];
+    if ($result->num_rows > 0) {
+        // Fetch user data as an associative array
+        $user_data = $result->fetch_assoc();
+        $id = $user_data['user_id'];
+        $username = $user_data['username'];
+        $email = $user_data['email'];
+        $user_type = $user_data['user_type'];
+        $user_image = $user_data['user_image'];
     } else {
-        echo "User not found.";
+        echo "User not found";
+        // Handle the case where the user ID doesn't exist in the database
     }
 } else {
-    echo "Invalid request.";
+    echo "User ID not provided";
+    // Handle the case where no user ID is provided in the URL
 }
-?>
 
+// Close the database connection
+$cn->close();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <title>Add User Profile - Form</title>
+  <title>Edit user- Form</title>
   <?php include"include/linked-files.php" ?>
 </head>
 
@@ -55,15 +63,15 @@ if(isset($_GET['id'])){
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Form</h5>
-
+            
               <!-- Horizontal Form -->
-              <form method="post" action="fire-add-querries.php" enctype="form-data">
+              <form method="post" action="fire-update-querries.php" enctype="form-data">
                 <div class="row mb-3">
-                  <label for="inputusername" class="col-sm-2 col-form-label">Username</label>
+                  <label for="inputusername" class="col-sm-2 col-form-label"><input type="hidden" name="user-edit-page-id" value='<?php echo $id; ?>'>Username</label>
                   <div class="col-sm-6">
                     <input type="text" class="form-control" value='<?php echo $username; ?>' name="username">
                   </div>
-                </div>
+                </div> 
                 <div class="row mb-3">
                   <label for="inputemail" class="col-sm-2 col-form-label">Email</label>
                   <div class="col-sm-6">
@@ -79,7 +87,7 @@ if(isset($_GET['id'])){
                 </div>
 
                 <div class="row mb-3">
-                  <label for="inputimage" class="col-sm-2 col-form-label">Add Profile Image</label>
+                  <label for="inputimage" class="col-sm-2 col-form-label">Add user Image</label>
                   <div class="col-sm-6">
                     <input type="file" class="form-control" name="user_image">
                   </div>
@@ -88,8 +96,7 @@ if(isset($_GET['id'])){
                 </div>
                 
                 <div class="text-center">
-                  <button type="submit" class="btn btn-primary" name="add-user"><i class='bx bx-upload'></i> Add</button>
-                  <button type="reset" class="btn btn-secondary" name="reset">Reset</button>
+                  <button type="submit" class="btn btn-primary" name="update-user"><i class='bx bx-upload'></i> Save</button>
                 </div>
                 <br>
               </form><!-- End Horizontal Form -->
